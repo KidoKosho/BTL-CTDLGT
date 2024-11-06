@@ -1,26 +1,6 @@
-#include <iostream>
-#include <string>
-#include <vector>
-using namespace std;
-
-template <typename T>
-class Node {
-    private:
-        T data;
-        Node<T>* left;
-        Node<T>* right;
-    public:
-        Node() : left(nullptr), right(nullptr) {}
-        Node(int val) : data(val), left(nullptr), right(nullptr) {}
-        Node<T>* GetLeft() { return left; }
-        Node<T>* GetRight() { return right; }
-        int GetData() { return data; }
-        void SetData(int data) { this->data = data; }
-        void SetLeft(Node<T>* left) { this->left = left; }
-        void SetRight(Node<T>* right) { this->right = right; }
-        ~Node(){delete left;delete right;}
-};
-
+#ifndef Tree_H
+#define Tree_H
+#include "Node.cpp"
 template <typename T>
 class Tree {
     private:
@@ -127,25 +107,4 @@ class Tree {
             delete tree;
         }
 };
-
-int main() {
-    Tree<int>* BST = new Tree<int>();
-    cout << "Nhap gia tri cua n:";
-    int n;
-    cin >> n;
-    for (int i = 0; i < n; ++i) {
-        int x;
-        cin >> x;
-        BST->add(x);
-    }
-    cout << "Nhap gia tri cua y:";
-    int y;cin>>y;
-    if(BST->FindSum(y)){
-        for(auto x:BST->GetPath()){cout << x << endl;}
-    }
-    else{
-        cout << "Khong co duong di nao co gia tri bang y\n";
-    }
-    delete BST;
-    return 0;
-}
+#endif
