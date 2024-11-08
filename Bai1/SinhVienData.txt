@@ -1,0 +1,2 @@
+SV001,Nguyen Van A,2000-01-01,Nam,123 Street,0123456789,email1@gmail.com,3.5
+SV002,Le Thi B,1999-05-12,Nu,456 Street,0987654321,email2@gmail.com,3.8

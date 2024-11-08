@@ -5,6 +5,7 @@
 #include <algorithm>
 #include <list>
 #include <vector>
+#include <fstream>
 #include "SinhVien.cpp"
 using namespace std;
 
@@ -42,6 +43,44 @@ class ListSV {
                 AddSv();
             }
         }
+        void AddSvFromFile(){
+            ifstream file;
+            do{
+                cout << "Nhap dia chi file:";
+                string filename;
+                cin >> filename;
+                file.open(filename);
+                cerr << "Khong the mo file: " << filename << endl;
+            }while (!file.is_open());
+            AddSvFromFile(file);
+        }
+        void AddSvFromFile(ifstream& file) {
+            
+
+            string msv, hovaten, ngaysinh, gioitinh, diachi, sodienthoai, email;
+            float GPA;
+            while (getline(file, msv, ',')) {
+                getline(file, hovaten, ',');
+                getline(file, ngaysinh, ',');
+                getline(file, gioitinh, ',');
+                getline(file, diachi, ',');
+                getline(file, sodienthoai, ',');
+                getline(file, email, ',');
+                file >> GPA;
+                file.ignore(); // Bỏ qua ký tự xuống dòng
+
+                // Tạo đối tượng SinhVien từ dữ liệu đọc được
+                SinhVien sv(msv, hovaten, ngaysinh, gioitinh, diachi, sodienthoai, email, GPA);
+
+                // Thêm vào danh sách sinh viên
+                SaveSvToFile(sv);
+                listsv.push_back(sv);
+            }
+
+            file.close();
+            cout << "Da them sinh vien tu file: " << endl;
+        }
+
         void HienThiDanhSach() {
             kq.clear();
             cout <<"-----------------\n";
@@ -94,9 +133,32 @@ class ListSV {
             SinhVien sv;
             cin >> sv; // Nhập thông tin sinh viên
             listsv.push_back(sv);
+            SaveSvToFile(sv);
         }
         void AddSv(SinhVien sv){
             listsv.push_back(sv);
+        }
+        void SaveSvToFile(const SinhVien& sv) {
+            ofstream file;
+            file.open("E:/Code/Cpp/BTL_CTDL_GT/Bai1/SinhVienData.txt", ios::app); // Mở file ở chế độ append
+
+            if (file.is_open()) {
+            // Lưu thông tin sinh viên vào file theo định dạng
+                file << sv.GetMSV() << ","
+                 << sv.GetHovaten() << ","
+                 << sv.GetNgaysinh() << ","
+                 << sv.GetGioitinh() << ","
+                 << sv.GetDiachi() << ","
+                 << sv.GetSodienthoai() << ","
+                 << sv.GetEmail() << ","
+                 << sv.GetGPA() << endl;
+
+                file.close(); // Đóng file sau khi ghi xong
+                cout << "Thong tin sinh vien da duoc luu vao file." << endl;
+            } 
+            else {
+                cerr << "Khong the mo file de luu du lieu." << endl;
+            }
         }
         //tim kiem
         void FindName(){

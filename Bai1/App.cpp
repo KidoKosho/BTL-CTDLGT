@@ -76,21 +76,27 @@ void App::Them(){//done
     this_thread::sleep_for(chrono::milliseconds(500));
     cout <<"-----------------\n";
     this_thread::sleep_for(chrono::milliseconds(200));
-    cout << "1.Nhap them sinh vien\n";
+    cout << "1.Nhap sinh vien bang file\n";
     this_thread::sleep_for(chrono::milliseconds(200));
-    cout << "2.Menu\n";
+    cout << "2.Nhap them sinh vien\n";
+    this_thread::sleep_for(chrono::milliseconds(200));
+    cout << "3.Menu\n";
     this_thread::sleep_for(chrono::milliseconds(200));
     cout <<"-----------------\n";
     int chon;
     do{    
         cin >> chon;
-        if(chon< 1 ||chon > 2) cout <<"Nhap lai gia tri tu 1->2:";
-    }while(chon < 1 && chon >2);
-    if(chon==1){
-        listsv.NhapDanhSachSV();
+        if(chon< 1 ||chon > 3) cout <<"Nhap lai gia tri tu 1->3:";
+    }while(chon < 1 || chon >3);
+    if(chon == 1){
+        listsv.AddSvFromFile();
         Them();
     }
     else if(chon==2){
+        listsv.NhapDanhSachSV();
+        Them();
+    }
+    else if(chon==3){
         Menu();
     }
 }

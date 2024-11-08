@@ -11,6 +11,8 @@ int main() {
         cin >> x;
         BST->add(x);
     }
+    BST->ShowPaths();
+    
     cout << "Nhap gia tri cua y de tim duong tu diem tu diem den cac node co gia tri bang y:";
     int y;cin>>y;
     if(BST->FindSum(y)){

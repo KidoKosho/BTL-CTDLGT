@@ -1,6 +1,8 @@
 #ifndef Tree_H
 #define Tree_H
 #include "Node.cpp"
+#include <thread>
+#include <chrono>
 template <typename T>
 class Tree {
     private:
@@ -51,7 +53,7 @@ class Tree {
         }
         void ShowPaths() {
             if (tree == nullptr) {
-                cout << "Cây rỗng!" << endl;
+                cout << "Cay rong!" << endl;
                 return;
             }
             ShowPaths(tree, "");
@@ -65,7 +67,7 @@ class Tree {
                 path += " -> " + to_string(node->GetData());
 
             if (node->GetLeft() == nullptr && node->GetRight() == nullptr) {
-                cout << "Đường dẫn: " << path << endl;
+                cout << "Duong di: " << path << endl;
                 return;
             }
             ShowPaths(node->GetLeft(), path);
