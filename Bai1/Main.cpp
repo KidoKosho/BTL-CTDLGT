@@ -3,5 +3,5 @@
 using namespace std;
 int main(){
     App app;
-    app.Menu();
+    app.AppStart();
 }

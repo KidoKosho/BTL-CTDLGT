@@ -4,6 +4,8 @@
 #include<stdio.h>
 #include <iostream>
 #include <string>
+#include <thread>
+#include <chrono>
 using namespace std;
 
 class SinhVien {
@@ -92,12 +94,19 @@ istream& operator>>(istream& is, SinhVien& sv) {
 // Toán tử xuất cho SinhVien
 ostream& operator<<(ostream& os, const SinhVien& sv) {
     os << "MSV: " << sv.msv << endl;
+    this_thread::sleep_for(chrono::milliseconds(200));
     os << "Ho va ten: " << sv.hovaten << endl;
+    this_thread::sleep_for(chrono::milliseconds(200));
     os << "Ngay sinh: " << sv.ngaysinh << endl;
+    this_thread::sleep_for(chrono::milliseconds(200));
     os << "Gioi tinh: " << sv.gioitinh << endl;
+    this_thread::sleep_for(chrono::milliseconds(200));
     os << "Dia chi: " << sv.diachi << endl;
+    this_thread::sleep_for(chrono::milliseconds(200));
     os << "So dien thoai: " << sv.sodienthoai << endl;
+    this_thread::sleep_for(chrono::milliseconds(200));
     os << "Email: " << sv.email << endl;
+    this_thread::sleep_for(chrono::milliseconds(200));
     os << "GPA: " << sv.GPA << endl;
     return os;
 }

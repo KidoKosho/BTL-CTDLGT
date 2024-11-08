@@ -23,16 +23,21 @@ class ListSV {
             Clear();
         }
         void NhapDanhSachSV(){
+            this_thread::sleep_for(chrono::milliseconds(100));
             cout <<"------------------------------------------------------\n";
-            cout << "Nhap so luong sinh vien:\n";
+            this_thread::sleep_for(chrono::milliseconds(200));
+            cout << "Nhap so luong sinh vien:";
             cin >> soluong;
+            this_thread::sleep_for(chrono::milliseconds(100));
             cout <<"------------------------------------------------------\n";
             NhapSV();
         }
         void NhapSV() {
             for (int i = 0; i < soluong; ++i) {
                 cout <<"------------------------------------------------------\n";
+                this_thread::sleep_for(chrono::milliseconds(200));
                 cout << "Nhap thong tin cho sinh vien " << (i + 1) << ":" << endl;
+                this_thread::sleep_for(chrono::milliseconds(200));
                 cout <<"------------------------------------------------------\n";
                 AddSv();
             }
@@ -42,6 +47,7 @@ class ListSV {
             cout <<"-----------------\n";
             if(listsv.size()==0) cout << "Chua co du lieu sinh vien nao!!!\n";
             for(auto it : listsv){
+                this_thread::sleep_for(chrono::milliseconds(200));
                 kq.push_back(it);
                 cout << it << endl;
             }
@@ -95,6 +101,7 @@ class ListSV {
         //tim kiem
         void FindName(){
             cout <<"------------------------------------------------------\n";
+            cout << "Nhap ten Sinh Vien muon tim:";
             string name;cin >> name;
             if(FindName(name)) cout << "Khong tim thay duoc sinh vien nao";
             else{
@@ -104,6 +111,7 @@ class ListSV {
         }
         void FindMSV(){
             cout <<"------------------------------------------------------\n";
+            cout << "Nhap Ma Sinh Vien muon tim:";
             string msv;cin >> msv;
             if(FindName(msv)) cout << "Khong tim thay duoc sinh vien nao";
             else{
@@ -113,6 +121,7 @@ class ListSV {
         }
         void FindGPA(){
             cout <<"------------------------------------------------------\n";
+            cout << "Nhap GPA muon tim : ";
             float gpa ;cin >> gpa;
             cout << "Tim kiem :\n 0.Bang\n 1.Nho\n 2.Hon\n";
             int i;
@@ -159,6 +168,7 @@ class ListSV {
             int i = 1;
             cout <<"---------------------------------------------------\n";
             for (auto x : kq) {
+            this_thread::sleep_for(chrono::milliseconds(200));
                 cout << i++ << " : " << x << endl;
             }
             cout <<"----------------------------------------------------\n";
