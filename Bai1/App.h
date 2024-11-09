@@ -1,6 +1,6 @@
 #ifndef APP_H
 #define APP_H
-#include "Danhsachsv.cpp"
+#include "Danhsachsv.h"
 #include <iostream>
 #include <random>
 #include<cstdlib>

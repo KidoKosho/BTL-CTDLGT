@@ -6,7 +6,7 @@
 #include <list>
 #include <vector>
 #include <fstream>
-#include "SinhVien.cpp"
+#include "SinhVien.h"
 using namespace std;
 
 class ListSV {
